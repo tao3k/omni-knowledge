@@ -1,0 +1,16 @@
+# Zettelkasten configuration for Omni Dev Fusion
+# Points to knowledge submodule
+
+[note]
+filename = "{{date}}-{{slug}}"
+
+[note.template]
+header = """
+# {{title}}
+
+"""
+extension = "md"
+extra-fields = []
+
+[search]
+use-ripgrep = true
