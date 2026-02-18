@@ -46,7 +46,7 @@ In a large Agentic OS with 100+ tools, naming conventions can cause issues:
 
 ## Architecture Components
 
-### 1. Configuration Layer (`assets/settings.yaml`)
+### 1. Configuration Layer (`packages/conf/settings.yaml` + user override)
 
 ```yaml
 skills:
@@ -158,7 +158,7 @@ async def call_tool(name: str, arguments: dict) -> list[Any]:
 **Goal**: Make tool names shorter and more verb-centric for LLM attention.
 
 ```yaml
-# settings.yaml
+# settings (system: packages/conf/settings.yaml, user: $PRJ_CONFIG_HOME/omni-dev-fusion/settings.yaml)
 skills:
   overrides:
     memory.remember_insight:
@@ -179,7 +179,7 @@ skills:
 **Goal**: Align internal tool names with user mental models.
 
 ```yaml
-# settings.yaml
+# settings (system: packages/conf/settings.yaml, user: $PRJ_CONFIG_HOME/omni-dev-fusion/settings.yaml)
 skills:
   overrides:
     code_tools.replace_in_file:
@@ -195,7 +195,7 @@ skills:
 **Goal**: Create logical groupings without code changes.
 
 ```yaml
-# settings.yaml
+# settings (system: packages/conf/settings.yaml, user: $PRJ_CONFIG_HOME/omni-dev-fusion/settings.yaml)
 skills:
   overrides:
     filesystem.read_files:
@@ -315,7 +315,7 @@ result = await kernel.execute_tool("memory.remember_insight", {...})
 | --------------------------------- | ---------------------------------------------------------------- |
 | `omni/core/config/loader.py`      | Config models (`CommandOverride`, `OverridesConfig`) and loaders |
 | `omni/agent/mcp_server/server.py` | MCP Server with routing tables and alias resolution              |
-| `assets/settings.yaml`            | Runtime configuration for aliases and overrides                  |
+| `packages/conf/settings.yaml` (system) / user settings | Runtime configuration for aliases and overrides                  |
 | `test_config_loader.py`           | Unit tests for BAM functionality                                 |
 
 ## Related Patterns
