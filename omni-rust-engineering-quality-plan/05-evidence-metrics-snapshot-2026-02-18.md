@@ -22,11 +22,11 @@ This snapshot records key metrics used by the playbook.
 
 ## Rust Hotspots (Omni)
 
-- `packages/rust/crates/omni-vector/src/skill/ops_impl.rs` (1271)
-- `packages/rust/crates/omni-vector/src/search/search_impl.rs` (1143)
-- `packages/rust/crates/omni-vector/src/checkpoint/store.rs` (1116)
-- `packages/rust/crates/omni-scanner/src/skills/tools.rs` (1223)
-- `packages/rust/crates/omni-scanner/src/skills/metadata.rs` (1156)
+- `packages/rust/crates/xiuxian-vector/src/skill/ops_impl.rs` (1271)
+- `packages/rust/crates/xiuxian-vector/src/search/search_impl.rs` (1143)
+- `packages/rust/crates/xiuxian-vector/src/checkpoint/store.rs` (1116)
+- `packages/rust/crates/xiuxian-skills/src/skills/tools.rs` (1223)
+- `packages/rust/crates/xiuxian-skills/src/skills/metadata.rs` (1156)
 
 ## Python Hotspots (Omni)
 
@@ -41,7 +41,7 @@ This snapshot records key metrics used by the playbook.
 
 - `packages/rust/crates/omni-executor/Cargo.toml`
 - `packages/rust/crates/omni-io/Cargo.toml`
-- `packages/rust/crates/omni-macros/Cargo.toml`
+- `packages/rust/crates/xiuxian-macros/Cargo.toml`
 - `packages/rust/crates/omni-sandbox/Cargo.toml`
 - `packages/rust/crates/omni-tui/Cargo.toml`
 

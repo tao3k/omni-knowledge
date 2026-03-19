@@ -49,7 +49,7 @@ To avoid competing with "Brains" like Claude-Code or Gemini-CLI, `omni-dev-fusio
 ### Stage 2: The Adaptive Generalist (Resilience)
 
 - **Objective**: A fallback node for unknown tasks.
-- **Key Tech**: `Universal Solver` (LangGraph Node).
+- **Key Tech**: `Universal Solver` (legacy graph-runtime node).
 - **Flow**: Router (No Match) -> Universal Solver -> Dynamic NuScript Generation -> Execution -> Self-Correction Loop -> Success.
 
 ### Stage 3: Evolutionary Memory (Growth)

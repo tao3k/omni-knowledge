@@ -42,7 +42,7 @@ A release can be labeled as high-quality Rust engineering only if:
 | Feature Name | Primary Areas | Owner | Target Date | Evidence Links | Status |
 | --- | --- | --- | --- | --- | --- |
 | Rust Quality Gate Modernization | CI lint/test quality gates | TBD | TBD | `.github/workflows/ci.yaml`, `.github/workflows/checks.yaml`, `justfile`, `assets/nix/modules/rust.nix` | In progress |
-| Dependency Security Guardrails | Dependency security | TBD | TBD | TBD | Not started |
+| Dependency Security Guardrails | Dependency security | TBD | TBD | `justfile` (`rust-security-*`), `scripts/rust/cargo_audit_gate.sh`, `nix/modules/rust.nix`, `nix/modules/tasks.nix` (`ci:rust-security-gate`), `.github/workflows/ci.yaml`, `.github/workflows/checks.yaml`, `deny.toml`, `17-dependency-security-lane-bootstrap-2026-02-24.md` | In progress (mandatory gate with temporary exceptions) |
 | Workspace Lint Completion | Workspace lint inheritance | TBD | TBD | `packages/rust/crates/*/Cargo.toml`, `justfile` (`rust-lint-inheritance-check`) | Completed |
 | MCP Client Reliability Hardening | Reliability test depth | TBD | TBD | TBD | Not started |
 | Module Complexity Reduction | Module complexity governance | TBD | TBD | TBD | Not started |
@@ -62,7 +62,7 @@ Use this template once per month:
 ## Progress Notes
 
 - 2026-02-18: Enabled `rust-quality-gate` in CI and checks workflows.
-  Current gate = `cargo check` + strict clippy baseline (`omni-types`,
+  Current gate = `cargo check` + strict clippy baseline (`xiuxian-types`,
   `omni-events`, `omni-tokenizer`, `omni-window`, `omni-security`,
   `omni-io`, `omni-executor`, `omni-mcp-client`, `omni-ast`) + `cargo nextest`.
 - 2026-02-18: Completed workspace lint inheritance coverage.
@@ -82,8 +82,8 @@ Use this template once per month:
   Fixed invalid benchmark generator syntax and optimized Python tree-sitter path
   (cached function query + early decorator filtering).
   `cargo test -p omni-ast --test test_ast_benchmark` now passes all 7 tests.
-- 2026-02-18: Completed dedicated `omni-macros` strict cleanup batch.
-  Crate now passes `cargo clippy -p omni-macros -- -D warnings`.
+- 2026-02-18: Completed dedicated `xiuxian-macros` strict cleanup batch.
+  Crate now passes `cargo clippy -p xiuxian-macros -- -D warnings`.
   Replaced panic-style proc-macro parsing with compile-error diagnostics and
   updated doctest/documentation style for strict lint compliance.
 - 2026-02-18: Completed dedicated `omni-lance` strict cleanup batch.
@@ -91,20 +91,58 @@ Use this template once per month:
   `cargo test -p omni-lance`.
   Added checked dimension conversion (`usize -> i32`) with explicit
   `ArrowError` handling and tightened API documentation/must-use coverage.
-- 2026-02-18: Started `omni-scanner` historical warning reduction (in progress).
+- 2026-02-18: Started `xiuxian-skills` historical warning reduction (in progress).
   Current reduction: strict clippy debt dropped from 232 to 107 errors.
   Completed slices:
   `src/frontmatter.rs`, `src/knowledge/scanner.rs`, `src/knowledge/types.rs`,
   `src/skills/tools.rs`, `src/skills/skill_command/{parser,category,annotations,mod}.rs`,
   `src/skills/{mod,canonical,metadata,scanner}.rs`.
-- 2026-02-18: Completed dedicated `omni-scanner` strict cleanup batch.
-  Crate now passes `cargo clippy -p omni-scanner -- -D warnings`.
+- 2026-02-18: Completed dedicated `xiuxian-skills` strict cleanup batch.
+  Crate now passes `cargo clippy -p xiuxian-skills -- -D warnings`.
   This batch reduced scanner strict debt from 232 to 0.
-- 2026-02-18: Expanded strict clippy baseline to include `omni-macros`,
-  `omni-lance`, and `omni-scanner` in `just rust-clippy`.
+- 2026-02-18: Expanded strict clippy baseline to include `xiuxian-macros`,
+  `omni-lance`, and `xiuxian-skills` in `just rust-clippy`.
   Baseline command now passes with warnings denied for 12 crates.
-- 2026-02-18: Started strict cleanup for `omni-vector` as the next
-  high-debt crate in the `omni-knowledge` dependency chain.
+- 2026-02-18: Started strict cleanup for `xiuxian-vector` as the next
+  high-debt crate in the `xiuxian-wendao` dependency chain.
   Current strict debt reduced from 548 to 531 errors.
 - 2026-02-18: Next strict-expansion candidates:
   run a fresh workspace debt scan and select the next crate by warning count.
+- 2026-02-23: Promoted `just rust-clippy` to workspace-wide strict mode:
+  `cargo clippy --workspace -- -D warnings`.
+  Updated `rust-lint-inheritance-check` to validate
+  `[lints] workspace = true` semantics in manifest sections.
+- 2026-02-23: Completed strict clippy cleanup for two previously blocking
+  crates:
+  `cargo clippy -p omni-edit -- -D warnings` -> pass,
+  `cargo clippy -p omni-tags -- -D warnings` -> pass.
+- 2026-02-23: Additional strict clippy convergence completed:
+  `xiuxian-qianhuan`, `omni-memory`, and `omni-executor` now pass
+  `cargo clippy -p <crate> -- -D warnings`.
+- 2026-02-23: Full-workspace re-probe identifies `xiuxian-wendao` as current
+  dominant strict-clippy blocker (reduced from 202 to 192 errors after a first
+  quick-fix batch).
+- 2026-02-23: Added second-pass revalidation update:
+  `08-second-pass-revalidation-and-execution-update-2026-02-23.md`
+  as the current execution reference for next-step convergence.
+- 2026-02-23: Added fourth-pass two-doc follow-up tracker:
+  `16-fourth-pass-two-doc-follow-up-2026-02-23.md`.
+  This is the active status board for Slice 1-6 progression based on codex
+  systems patterns and omni adoption slices.
+- 2026-02-24: Bootstrapped dependency security lane end-to-end:
+  added `cargo-audit` and `cargo-deny` to local gate + Nix tasks + CI, and
+  added repository-level `deny.toml`. CI rust security steps are now mandatory;
+  temporary exceptions remain explicitly tracked while historical advisories are
+  reduced.
+  Baseline execution evidence and remediation staging are tracked in
+  `17-dependency-security-lane-bootstrap-2026-02-24.md`.
+- 2026-02-24: Completed first dependency-security reduction pass:
+  upgraded `bytes`, `time`, `git2`, and `oneshot` in `Cargo.lock`, reducing
+  active gate findings from `3 vulnerabilities + 6 denied warnings` to a
+  temporary transitive exception set. Added centralized audit gate script
+  (`scripts/rust/cargo_audit_gate.sh`) and synchronized deny policy exceptions.
+  `devenv tasks run ci:rust-security-gate` now passes locally.
+- 2026-02-24: Added dependency-security execution artifacts and ownership:
+  `18-dependency-security-exception-register-2026-02-24.md`,
+  `19-reqwest011-transitive-decommission-plan-2026-02-24.md`, and
+  `20-lru0125-transitive-elimination-plan-2026-02-24.md`.

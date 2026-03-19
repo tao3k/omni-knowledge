@@ -158,7 +158,7 @@ async def call_tool(name: str, arguments: dict) -> list[Any]:
 **Goal**: Make tool names shorter and more verb-centric for LLM attention.
 
 ```yaml
-# settings (system: packages/conf/settings.yaml, user: $PRJ_CONFIG_HOME/omni-dev-fusion/settings.yaml)
+# settings (system: packages/conf/settings.yaml, user: $PRJ_CONFIG_HOME/xiuxian-artisan-workshop/settings.yaml)
 skills:
   overrides:
     memory.remember_insight:
@@ -179,7 +179,7 @@ skills:
 **Goal**: Align internal tool names with user mental models.
 
 ```yaml
-# settings (system: packages/conf/settings.yaml, user: $PRJ_CONFIG_HOME/omni-dev-fusion/settings.yaml)
+# settings (system: packages/conf/settings.yaml, user: $PRJ_CONFIG_HOME/xiuxian-artisan-workshop/settings.yaml)
 skills:
   overrides:
     code_tools.replace_in_file:
@@ -195,7 +195,7 @@ skills:
 **Goal**: Create logical groupings without code changes.
 
 ```yaml
-# settings (system: packages/conf/settings.yaml, user: $PRJ_CONFIG_HOME/omni-dev-fusion/settings.yaml)
+# settings (system: packages/conf/settings.yaml, user: $PRJ_CONFIG_HOME/xiuxian-artisan-workshop/settings.yaml)
 skills:
   overrides:
     filesystem.read_files:

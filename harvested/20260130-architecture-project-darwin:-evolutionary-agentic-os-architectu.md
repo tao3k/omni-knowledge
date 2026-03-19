@@ -46,7 +46,7 @@ Transform `omni-dev-fusion` into a self-evolving Agentic Operating System by int
 - **Status**: _Design Phase_
 - **Goal**: Create a fallback execution node that ensures the agent never hits a dead end.
 - **Key Features**:
-  - **Universal Solver Node**: A LangGraph node activated when `Router` returns no specific skill.
+  - **Universal Solver Node**: A legacy graph-runtime node activated when `Router` returns no specific skill.
   - **Dynamic Plan Generation**: LLM writes ephemeral Nushell scripts based on real-time `sys_ops` feedback.
   - **Self-Correction Loop**: Execute -> Catch Stderr -> Refine Script -> Retry.
 

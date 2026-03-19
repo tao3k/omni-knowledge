@@ -105,7 +105,6 @@ requires-python = ">=3.12"
 dependencies = [
     "lancedb>=0.20.0",
     "gitpython>=3.1.0",
-    "langgraph>=1.0.5",
     "langsmith>=0.6.0",
     "libvcs>=0.14.0",
     "mcp>=1.1.0",

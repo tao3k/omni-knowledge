@@ -6,7 +6,7 @@
 
 ## Vision
 
-The Omni Agentic OS evolves from a monolithic loop to a **Composable Multi-Graph Architecture**.
+The Xiuxian Daochangic OS evolves from a monolithic loop to a **Composable Multi-Graph Architecture**.
 Specialized workflows (Tasks, Memory, Research) are encapsulated as independent graphs that can be invoked as nodes within other graphs.
 
 ## Core Concept: Subgraph Node

@@ -3,6 +3,11 @@
 This roadmap is tracked by feature names.
 Use week ranges only as planning hints.
 
+For the latest second-pass sequencing and baseline-aligned refinements, see:
+
+- `07-second-pass-plan-refinement-2026-02-22.md`
+- `08-second-pass-revalidation-and-execution-update-2026-02-23.md`
+
 ## Feature 1: Rust Quality Gate Modernization
 
 ## Goal
@@ -119,7 +124,7 @@ Reduce hotspot maintenance risk in Rust and Python modules.
 ## Scope
 
 - Split large files by domain concern.
-- Remove `include!` composition in `omni-vector` runtime modules where practical.
+- Remove `include!` composition in `xiuxian-vector` runtime modules where practical.
 - Break large Python runtime modules (especially MCP server and router/hybrid paths).
 
 ## Deliverables

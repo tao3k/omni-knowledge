@@ -15,7 +15,7 @@ This baseline is derived from repository evidence captured on 2026-02-18.
 
 ## Testing Investment
 
-- Strong Rust snapshot/data-contract testing in `omni-vector` tests.
+- Strong Rust snapshot/data-contract testing in `xiuxian-vector` tests.
 - Cross-layer validation exists in CI:
   - Rust checks + contract tests in `.github/workflows/ci.yaml`.
 - Python tests are broad across unit/integration/contracts in `packages/python/**/tests`.
@@ -42,7 +42,7 @@ This baseline is derived from repository evidence captured on 2026-02-18.
 - Crates missing `[lints] workspace = true`:
   - `packages/rust/crates/omni-executor/Cargo.toml`
   - `packages/rust/crates/omni-io/Cargo.toml`
-  - `packages/rust/crates/omni-macros/Cargo.toml`
+  - `packages/rust/crates/xiuxian-macros/Cargo.toml`
   - `packages/rust/crates/omni-sandbox/Cargo.toml`
   - `packages/rust/crates/omni-tui/Cargo.toml`
 
@@ -54,10 +54,10 @@ This baseline is derived from repository evidence captured on 2026-02-18.
 ## Module Complexity Hotspots
 
 - Rust hotspots:
-  - `packages/rust/crates/omni-vector/src/skill/ops_impl.rs` (1271 lines)
-  - `packages/rust/crates/omni-vector/src/search/search_impl.rs` (1143 lines)
-  - `packages/rust/crates/omni-scanner/src/skills/tools.rs` (1223 lines)
-  - `packages/rust/crates/omni-scanner/src/skills/metadata.rs` (1156 lines)
+  - `packages/rust/crates/xiuxian-vector/src/skill/ops_impl.rs` (1271 lines)
+  - `packages/rust/crates/xiuxian-vector/src/search/search_impl.rs` (1143 lines)
+  - `packages/rust/crates/xiuxian-skills/src/skills/tools.rs` (1223 lines)
+  - `packages/rust/crates/xiuxian-skills/src/skills/metadata.rs` (1156 lines)
 - Python hotspots:
   - `packages/python/agent/src/omni/agent/mcp_server/server.py` (1260 lines)
   - `packages/python/foundation/src/omni/foundation/bridge/rust_vector.py` (1138 lines)

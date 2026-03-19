@@ -1,12 +1,12 @@
-# Cortex Module: The Prefrontal Cortex of Omni Agent
+# Cortex Module: The Prefrontal Cortex of 修仙道场 (Xiuxian Daochang)
 
 > **Category**: ARCHITECTURE | **Date**: 2026-01-31
 
-# Cortex Module: The Prefrontal Cortex of Omni Agent
+# Cortex Module: The Prefrontal Cortex of 修仙道场 (Xiuxian Daochang)
 
 ## 1. Overview
 
-The **Cortex** (`omni.agent.core.cortex`) serves as the "Prefrontal Cortex" of the Omni Agent system. It provides **Executive Function**, enabling the agent to handle complex, multi-step goals that cannot be solved by a single tool call.
+The **Cortex** (`omni.agent.core.cortex`) serves as the "Prefrontal Cortex" of the Xiuxian Daochang system. It provides **Executive Function**, enabling the agent to handle complex, multi-step goals that cannot be solved by a single tool call.
 
 It introduces a **Map-Plan-Orchestrate** paradigm:
 
