@@ -125,7 +125,7 @@ Observed outcomes:
 - `cargo clippy ...` still reported pre-existing unrelated pedantic warnings in:
   - `packages/rust/crates/xiuxian-wendao/tests/test_link_graph_hybrid_benchmark/...`
   - `packages/rust/crates/xiuxian-wendao/tests/dependency_indexer_indexer_unit/support.rs`
-  These warnings were not introduced by this change.
+    These warnings were not introduced by this change.
 
 ## Artifacts and Notes
 

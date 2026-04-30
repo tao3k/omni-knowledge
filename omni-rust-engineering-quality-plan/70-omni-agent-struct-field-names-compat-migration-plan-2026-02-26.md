@@ -3,7 +3,7 @@
 ## Scope
 
 This shard is a design-only migration plan (no production code changes in this
- shard) for the final `xiuxian-daochang` suppression category:
+shard) for the final `xiuxian-daochang` suppression category:
 
 - `clippy::struct_field_names` (3 remaining sites)
 

@@ -21,14 +21,17 @@ not universally.
 ## Timeout wrappers with operation labels
 
 Observed evidence:
+
 - `.cache/researcher/openai/codex/codex-rs/rmcp-client/src/utils.rs`
 - `.cache/researcher/openai/codex/codex-rs/rmcp-client/src/rmcp_client.rs`
 
 Pattern:
+
 - Use a shared timeout helper (`run_with_timeout`) and include operation labels
   (for example `tools/list`, `resources/read`) at the call site.
 
 Why this matters:
+
 - Timeout behavior stays consistent.
 - Production diagnostics can point to operation-level failures without ad hoc
   logging.
@@ -36,20 +39,24 @@ Why this matters:
 ## Retry policy as typed API contract
 
 Observed evidence:
+
 - `.cache/researcher/openai/codex/codex-rs/codex-client/src/retry.rs`
 - `.cache/researcher/openai/codex/codex-rs/codex-api/src/provider.rs`
 
 Pattern:
+
 - Retry settings are explicit structs (`RetryPolicy`, `RetryOn`,
   `RetryConfig`) with backoff+jitter encoded in shared logic.
 
 Why this matters:
+
 - Retry semantics are reviewable and testable as domain policy.
 - Callers cannot silently diverge on retry behavior.
 
 ## RAII cleanup guards for process/runtime safety
 
 Observed evidence:
+
 - `.cache/researcher/openai/codex/codex-rs/rmcp-client/src/rmcp_client.rs`
   (`ProcessGroupGuard`)
 - `.cache/researcher/openai/codex/codex-rs/rmcp-client/src/perform_oauth_login.rs`
@@ -58,38 +65,46 @@ Observed evidence:
   (`ThreadWatchActiveGuard`)
 
 Pattern:
+
 - Model cleanup responsibilities as `Drop` guards close to ownership.
 
 Why this matters:
+
 - Shutdown reliability does not depend on best-effort call ordering.
 - Failure paths and cancellation paths share the same cleanup guarantees.
 
 ## 3. CI As A Runtime Cost-Control System
 
 Observed evidence:
+
 - `.cache/researcher/openai/codex/.github/workflows/rust-ci.yml`
 
 Patterns:
+
 - Path-based change detection with a dedicated `changed` job.
 - Strict lint gate (`cargo clippy ... -D warnings`) and nextest matrix.
 - Required gatherer job (`CI results`) to stabilize required status checks.
 - Built-in observability (`--timings`, `sccache --show-stats`) in job summaries.
 
 Why this matters:
+
 - CI stays strict without always paying full monorepo cost.
 - Teams get performance feedback together with pass/fail signals.
 
 ## 4. Release Engineering As Verifiable Pipeline
 
 Observed evidence:
+
 - `.cache/researcher/openai/codex/.github/workflows/rust-release.yml`
 - `.cache/researcher/openai/codex/.github/workflows/rust-release-windows.yml`
 
 Patterns:
+
 - Target matrix release builds with timing artifacts uploaded.
 - Preflight structure that separates preparation and publish steps.
 
 Why this matters:
+
 - Release confidence comes from explicit preflight gates, not one-shot builds.
 - Build regressions are visible before they become release incidents.
 

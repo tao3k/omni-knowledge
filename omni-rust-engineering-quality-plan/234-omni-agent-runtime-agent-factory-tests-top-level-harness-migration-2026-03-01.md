@@ -9,12 +9,14 @@
 ## Changes
 
 1. Removed `src`-side test mounting in runtime agent factory module
+
 - File: `packages/rust/crates/xiuxian-daochang/src/runtime_agent_factory/mod.rs`
 - Removed:
   - test-only imports (`LITELLM_DEFAULT_URL`, `McpServerEntry`, test helper imports)
   - `#[cfg(test)] #[path = "../../tests/runtime_agent_factory/inference.rs"] mod tests;`
 
 2. Added top-level integration test harness
+
 - File: `packages/rust/crates/xiuxian-daochang/tests/runtime_agent_factory.rs`
 - Added a dedicated harness that mounts only required source modules and exposes
   test-facing symbols for `tests/runtime_agent_factory/inference.rs`.
@@ -22,6 +24,7 @@
   module contracts without importing unrelated crate surfaces.
 
 3. Added memory test adapter module for stable path resolution
+
 - File: `packages/rust/crates/xiuxian-daochang/tests/runtime_agent_factory/memory.rs`
 - Added explicit `#[path = "..."]` links to:
   - `src/runtime_agent_factory/memory/embedding.rs`
@@ -30,6 +33,7 @@
 - Kept runtime-memory option assembly logic equivalent to source behavior.
 
 4. Minor test cleanup to remain clippy-clean
+
 - File: `packages/rust/crates/xiuxian-daochang/tests/runtime_agent_factory/inference.rs`
 - Replaced underscore-bind no-op reads with `let _ = ...;` pattern to avoid
   `clippy::no_effect_underscore_binding`.

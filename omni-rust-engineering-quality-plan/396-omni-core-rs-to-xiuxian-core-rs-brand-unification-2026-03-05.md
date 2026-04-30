@@ -47,4 +47,3 @@ Unify binding package branding from `omni-*` to `xiuxian-*` for the Rust Python 
 - Full `cargo nextest run -p xiuxian-core-rs` fails at test listing stage in current macOS runner with:
   - `dyld: symbol not found in flat namespace '_PyBool_Type'`
 - This is runtime dynamic-link behavior for PyO3 test enumeration in this environment, not a compile failure.
-

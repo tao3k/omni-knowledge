@@ -10,12 +10,14 @@
 ## Changes
 
 1. Removed final `src`-side bootstrap test mount
+
 - File:
   - `packages/rust/crates/xiuxian-daochang/src/agent/bootstrap.rs`
 - Removed:
   - `#[cfg(test)] #[path = "../../tests/unit/agent/bootstrap_tests.rs"] mod tests;`
 
 2. Added top-level bootstrap harness
+
 - File:
   - `packages/rust/crates/xiuxian-daochang/tests/agent_bootstrap.rs`
 - Added a dedicated package-top harness that reuses:
@@ -24,6 +26,7 @@
   `memory`, `qianhuan`, `zhenfa`, `zhixing`) needed by existing tests.
 
 3. Stabilized one fixture assertion against current embedded steward persona text
+
 - File:
   - `packages/rust/crates/xiuxian-daochang/tests/unit/agent/bootstrap_tests.rs`
 - Updated the semantic-content assertion to accept either legacy phrase

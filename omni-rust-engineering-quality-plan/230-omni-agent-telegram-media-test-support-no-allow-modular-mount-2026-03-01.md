@@ -10,6 +10,7 @@
 ## Changes
 
 1. Replaced shared integration-test wrapper wiring with per-target module mounts
+
 - Files:
   - `packages/rust/crates/xiuxian-daochang/tests/channels_telegram_media.rs`
   - `packages/rust/crates/xiuxian-daochang/tests/channels_telegram_media_markdown.rs`
@@ -24,12 +25,14 @@
 - Updated imports to module-local paths (`use media_api::...`, `use upload_api::...`).
 
 2. Removed `unused_imports` suppression dependency
+
 - File: `packages/rust/crates/xiuxian-daochang/tests/telegram_media_support/mod.rs`
 - Removed previous re-export style and no longer rely on
   `#[allow(unused_imports)]`.
 - This module is now no longer required for touched Telegram media targets.
 
 3. Stabilized module resolution for direct `#[path]` mounting
+
 - Files:
   - `packages/rust/crates/xiuxian-daochang/tests/telegram_media_support/media_api.rs`
   - `packages/rust/crates/xiuxian-daochang/tests/telegram_media_support/upload_api.rs`
@@ -37,6 +40,7 @@
   - `media_api/*` and `upload_api/*` submodules are now resolved explicitly.
 
 4. Dead-code warning elimination without `#[allow]`
+
 - Files:
   - `packages/rust/crates/xiuxian-daochang/tests/telegram_media_support/media_api.rs`
   - `packages/rust/crates/xiuxian-daochang/tests/telegram_media_support/upload_api.rs`

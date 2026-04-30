@@ -26,6 +26,7 @@ Remove remaining `omni-*` distribution package names and unify on `xiuxian-*` wh
 - Sources/dependency references in workspace configuration and docs/scripts were migrated from `omni-*` package names to `xiuxian-*` names.
 
 Note:
+
 - This wave renames Python **distribution names** only.
 - Python module namespace (`omni.*`) was kept unchanged.
 

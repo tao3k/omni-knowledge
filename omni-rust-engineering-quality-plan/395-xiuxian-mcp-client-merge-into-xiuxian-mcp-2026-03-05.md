@@ -10,6 +10,7 @@ All MCP client capability remains in `xiuxian-mcp`.
 ## Audit Result
 
 `packages/rust/crates/xiuxian-mcp-client` was an empty shell:
+
 - `src/` empty
 - `resources/` empty
 - `tests/` empty

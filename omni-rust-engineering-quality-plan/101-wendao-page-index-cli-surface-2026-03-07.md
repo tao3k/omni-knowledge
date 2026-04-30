@@ -5,6 +5,7 @@
 Extended the `wendao` CLI with a dedicated `page-index` graph command so the new Rust-native `PageIndex` tree can be inspected without writing ad-hoc debug code.
 
 This follow-up keeps the command aligned with the existing graph command surface:
+
 - it participates in the normal `LinkGraphIndex` bootstrap path,
 - it uses the same ambiguity handling pattern as `metadata` and `resolve`,
 - it serializes through a CLI-local view model instead of leaking transport concerns into the core `PageIndexNode` type.
@@ -20,6 +21,7 @@ wendao --root <DIR> page-index <stem-or-id-or-path>
 ```
 
 Output shape:
+
 - `query`: original alias input,
 - `resolved`: canonical metadata row,
 - `root_count`: number of root page nodes,

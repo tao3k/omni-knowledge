@@ -4,18 +4,18 @@ This snapshot records codex-only metrics used by this reference set.
 
 ## 1. Structural Metrics
 
-| Metric | Value |
-| --- | ---: |
-| Codex crate directories with `Cargo.toml` | 45 |
-| Codex crates with `[lints] workspace = true` | 38 |
-| Codex Rust files >500 lines | 197 |
-| Codex Rust files >1000 lines | 77 |
-| Codex top-level workflow files | 18 |
-| Codex crate roots with `deny(print_stdout/print_stderr)` | 7 |
-| Dedicated `cargo-deny` workflow | present |
-| Dedicated `cargo-audit` workflow | present |
-| `clippy -D warnings` lane in Rust CI | present |
-| `cargo nextest` lane in Rust CI | present |
+| Metric                                                   |   Value |
+| -------------------------------------------------------- | ------: |
+| Codex crate directories with `Cargo.toml`                |      45 |
+| Codex crates with `[lints] workspace = true`             |      38 |
+| Codex Rust files >500 lines                              |     197 |
+| Codex Rust files >1000 lines                             |      77 |
+| Codex top-level workflow files                           |      18 |
+| Codex crate roots with `deny(print_stdout/print_stderr)` |       7 |
+| Dedicated `cargo-deny` workflow                          | present |
+| Dedicated `cargo-audit` workflow                         | present |
+| `clippy -D warnings` lane in Rust CI                     | present |
+| `cargo nextest` lane in Rust CI                          | present |
 
 ## 2. Representative Large Modules
 

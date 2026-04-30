@@ -67,7 +67,7 @@ uv sync                                              # Sync all
 
 ```toml
 [project]
-name = "omni-dev-fusion-agent"
+name = "xiuxian-artisan-workshop-agent"
 version = "0.3.0-dev"
 requires-python = ">=3.12"
 
@@ -82,7 +82,7 @@ build-backend = "hatchling.build"
 packages = ["src/agent"]
 
 [tool.uv.sources]
-omni-dev-fusion-common = { workspace = true }
+xiuxian-artisan-workshop-common = { workspace = true }
 
 # ❌ WRONG! dependencies placed under [tool.hatch.build.targets.wheel]
 [tool.hatch.build.targets.wheel]
@@ -98,7 +98,7 @@ dependencies = [
 
 ```toml
 [project]
-name = "omni-dev-fusion-agent"
+name = "xiuxian-artisan-workshop-agent"
 version = "0.3.0-dev"
 requires-python = ">=3.12"
 # ✅ dependencies MUST be under [project] table
@@ -111,7 +111,7 @@ dependencies = [
     "pydantic-ai>=1.39.0",
     "structlog>=24.0.0",
     "typer>=0.15.0",
-    "omni-dev-fusion-common",
+    "xiuxian-artisan-workshop-common",
 ]
 
 [project.scripts]
@@ -126,7 +126,7 @@ build-backend = "hatchling.build"
 packages = ["src/agent"]
 
 [tool.uv.sources]
-omni-dev-fusion-common = { workspace = true }
+xiuxian-artisan-workshop-common = { workspace = true }
 ```
 
 **After fix:**

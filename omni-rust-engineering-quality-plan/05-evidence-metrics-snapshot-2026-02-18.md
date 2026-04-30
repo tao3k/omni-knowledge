@@ -4,19 +4,19 @@ This snapshot records key metrics used by the playbook.
 
 ## 1. Structural Metrics
 
-| Metric | Value |
-| --- | ---: |
-| Omni Rust crate dirs (`packages/rust/crates/*`) | 21 |
-| Codex Rust crate dirs with `Cargo.toml` | 45 |
-| Omni crates with `[lints] workspace = true` | 16 |
-| Codex crates with `[lints] workspace = true` | 38 |
-| Omni Rust files >500 lines | 36 |
-| Codex Rust files >500 lines | 197 |
-| Omni Rust files >1000 lines | 9 |
-| Codex Rust files >1000 lines | 77 |
-| Omni Python files >500 lines | 68 |
-| Omni top-level workflow files | 3 |
-| Codex top-level workflow files | 18 |
+| Metric                                          | Value |
+| ----------------------------------------------- | ----: |
+| Omni Rust crate dirs (`packages/rust/crates/*`) |    21 |
+| Codex Rust crate dirs with `Cargo.toml`         |    45 |
+| Omni crates with `[lints] workspace = true`     |    16 |
+| Codex crates with `[lints] workspace = true`    |    38 |
+| Omni Rust files >500 lines                      |    36 |
+| Codex Rust files >500 lines                     |   197 |
+| Omni Rust files >1000 lines                     |     9 |
+| Codex Rust files >1000 lines                    |    77 |
+| Omni Python files >500 lines                    |    68 |
+| Omni top-level workflow files                   |     3 |
+| Codex top-level workflow files                  |    18 |
 
 ## 2. Selected Hotspots
 

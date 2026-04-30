@@ -26,7 +26,7 @@ surfaced long-literal warnings at source level.
    - Discord attachment limits in:
      - `packages/rust/crates/xiuxian-daochang/tests/channels_discord_ingress.rs`
      - `packages/rust/crates/xiuxian-daochang/tests/channels_discord_parsing.rs`
-     (`8_388_608`).
+       (`8_388_608`).
 3. Kept no-suppression-first policy:
    - no new `#[allow(...)]` was introduced.
 

@@ -11,7 +11,9 @@ The **Include Pattern**, as pioneered in the `Ralph-Workflow` project, provides 
 Unlike the standard `mod sub_module;` declaration which creates a new namespace, `include!("path.rs")` performs a literal source-level injection.
 
 ### Standard Structure (The Orchestrator File)
+
 `src/json_parser/claude.rs`:
+
 ```rust
 // 1. Module-level imports and shared types
 use crate::common::truncate_text;
@@ -37,12 +39,15 @@ include!("claude/tests.rs");
 ## 3. Core Advantages
 
 ### A. Hyper-Modularity (Exceeding the 300-Line Rule)
+
 By splitting `parser.rs`, `formatting.rs`, and `stream_parsing.rs`, each file remains focused on a single concern. This satisfies the **Auditor's Codex** requirement for fine-grained modules without polluting the module tree with excessive sub-namespaces.
 
 ### B. Logical Cohesion
-Because `include!` injects code into the *current* scope, all sub-files share the same `use` statements and private symbols defined in the orchestrator. This eliminates the need for repetitive `super::*` imports or complex visibility (`pub(crate)`) management between sub-components.
+
+Because `include!` injects code into the _current_ scope, all sub-files share the same `use` statements and private symbols defined in the orchestrator. This eliminates the need for repetitive `super::*` imports or complex visibility (`pub(crate)`) management between sub-components.
 
 ### C. Clean Testing
+
 Test files can be physically separated (`tests.rs`), keeping the main logic "clean" while still allowing tests to access private functions and state—a key requirement for rigorous internal verification.
 
 ## 4. Implementation Standards for CyberXiuXian Workshop
@@ -57,6 +62,7 @@ When employing this pattern in `packages/rust/crates/*`, the following rules app
 ## 5. Case Study: Ralph-Workflow Integration
 
 In `Ralph-Workflow`, the `json_parser` handles multi-agent streaming output. By using this pattern, it manages:
+
 - **NDJSON parsing** (internal logic)
 - **Ansi-formatting** (presentation)
 - **Streaming state** (state management)
@@ -64,5 +70,6 @@ In `Ralph-Workflow`, the `json_parser` handles multi-agent streaming output. By 
 This ensures that adding support for a new agent (e.g., `gemini-v2.rs`) is as simple as creating a new orchestrator and implementing the corresponding sub-files, maintaining a zero-debt architecture.
 
 ---
-*Status: MANDATORY for Kernel-Level Development (V1.0)*
-*Referenced: Auditor's Codex (High-Standard Era)*
+
+_Status: MANDATORY for Kernel-Level Development (V1.0)_
+_Referenced: Auditor's Codex (High-Standard Era)_

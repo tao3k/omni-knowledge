@@ -9,6 +9,7 @@ Source: https://claude.com/blog/equipping-agents-for-the-real-world-with-agent-s
 ## Core Principle: Progressive Disclosure
 
 ### Level 1: Minimal Metadata
+
 ```yaml
 ---
 name: skill-name
@@ -17,9 +18,11 @@ description: Brief description
 ```
 
 ### Level 2: SKILL.md Body
+
 Full content loaded when Claude deems relevant.
 
 ### Level 3+: Additional Files
+
 Referenced by name for specific scenarios.
 
 ## Standard SKILL.md Structure

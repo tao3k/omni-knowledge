@@ -21,7 +21,7 @@ description: <when-to-use-this-skill>
 metadata:
   author: <maintainer>
   version: "<semantic-version>"
-  source: <upstream-repo-url>  # Optional but recommended
+  source: <upstream-repo-url> # Optional but recommended
 ---
 ```
 
@@ -32,8 +32,9 @@ metadata:
 - Mention related skills
 
 **Example:**
+
 ```yaml
-description: "Use when writing Vue SFCs, defineProps/defineEmits, watchers, 
+description: "Use when writing Vue SFCs, defineProps/defineEmits, watchers,
 or using Transition/Teleport/Suspense/KeepAlive"
 ```
 
@@ -43,12 +44,12 @@ or using Transition/Teleport/Suspense/KeepAlive"
 
 Organize content in tiers:
 
-| Tier | Purpose | Content Type |
-|------|---------|--------------|
-| **Core** | Essential concepts, CLI commands, fundamental APIs | Tables, examples |
-| **Features** | Advanced capabilities, optional patterns | Code samples |
-| **Best Practices** | Recommendations, patterns to follow | Guidelines |
-| **Advanced** | Edge cases, deep customization | Edge cases |
+| Tier               | Purpose                                            | Content Type     |
+| ------------------ | -------------------------------------------------- | ---------------- |
+| **Core**           | Essential concepts, CLI commands, fundamental APIs | Tables, examples |
+| **Features**       | Advanced capabilities, optional patterns           | Code samples     |
+| **Best Practices** | Recommendations, patterns to follow                | Guidelines       |
+| **Advanced**       | Edge cases, deep customization                     | Edge cases       |
 
 ---
 
@@ -65,6 +66,7 @@ skills/<skill-name>/
 ```
 
 Each reference file covers one topic in depth with:
+
 - Architecture diagrams (ASCII)
 - Code examples
 - API reference tables
@@ -96,8 +98,9 @@ Each reference file covers one topic in depth with:
 
 ### Examples Pattern
 
-```markdown
+````markdown
 **Examples:**
+
 ```python
 # Smart crawl (default)
 @omni("crawl4ai.CrawlUrl", {"url": "https://example.com"})
@@ -105,7 +108,9 @@ Each reference file covers one topic in depth with:
 # Skeleton only
 @omni("crawl4ai.CrawlUrl", {"url": "https://example.com", "action": "skeleton"})
 ```
-```
+````
+
+````
 
 ---
 
@@ -115,7 +120,7 @@ Support command aliases for usability:
 
 ```python
 ### `crawl_url` (alias: `webCrawl`)
-```
+````
 
 ---
 
@@ -124,8 +129,8 @@ Support command aliases for usability:
 Reference other skills explicitly:
 
 ```markdown
-| Topic | Description | Reference |
-|-------|-------------|-----------|
+| Topic             | Description                | Reference                                         |
+| ----------------- | -------------------------- | ------------------------------------------------- |
 | Skeleton Planning | LLM sees TOC (~500 tokens) | [smart-chunking.md](references/smart-chunking.md) |
 ```
 
@@ -151,4 +156,3 @@ Reference other skills explicitly:
 - **Missing examples**: Always provide copy-paste examples
 - **Deep nesting**: Limit reference depth to 1 level
 - **No activation signals**: Description should clearly trigger skill routing
-

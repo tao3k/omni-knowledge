@@ -311,12 +311,12 @@ result = await kernel.execute_tool("memory.remember_insight", {...})
 
 ## Files Reference
 
-| File                              | Purpose                                                          |
-| --------------------------------- | ---------------------------------------------------------------- |
-| `omni/core/config/loader.py`      | Config models (`CommandOverride`, `OverridesConfig`) and loaders |
-| `omni/agent/mcp_server/server.py` | MCP Server with routing tables and alias resolution              |
+| File                                                   | Purpose                                                          |
+| ------------------------------------------------------ | ---------------------------------------------------------------- |
+| `omni/core/config/loader.py`                           | Config models (`CommandOverride`, `OverridesConfig`) and loaders |
+| `omni/agent/mcp_server/server.py`                      | MCP Server with routing tables and alias resolution              |
 | `packages/conf/settings.yaml` (system) / user settings | Runtime configuration for aliases and overrides                  |
-| `test_config_loader.py`           | Unit tests for BAM functionality                                 |
+| `test_config_loader.py`                                | Unit tests for BAM functionality                                 |
 
 ## Related Patterns
 

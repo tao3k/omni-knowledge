@@ -9,6 +9,7 @@
 ## Changes
 
 1. Removed cast-suppression debt in production paths
+
 - `packages/rust/crates/xiuxian-qianji/src/engine/compiler.rs`
   - Reworked `formal_audit_threshold_score` to deserialize JSON into `f32`
     directly (`serde_json::from_value`) and keep finite/range validation.
@@ -24,12 +25,14 @@
   - Added JSON-driven `f32` extraction helper (`context_f32`).
 
 2. Removed `unused_self` suppression in safety guard
+
 - `packages/rust/crates/xiuxian-qianji/src/safety/mod.rs`
   - Removed `#[allow(clippy::unused_self)]` from `audit_topology`.
   - Included `max_loop_iterations` in cycle error message so `self` is
     semantically used.
 
 3. Fixed all-features hard clippy errors (`unwrap_used` / `expect_used`)
+
 - `packages/rust/crates/xiuxian-qianji/src/python_module.rs`
   - Replaced two `tokio::runtime::Runtime::new().unwrap()` sites with explicit
     `PyRuntimeError` propagation.

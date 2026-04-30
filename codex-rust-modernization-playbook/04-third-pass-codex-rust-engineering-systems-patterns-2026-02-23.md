@@ -85,4 +85,3 @@ Codex demonstrates a layered engineering system:
 - deterministic harnesses for repeatable reliability.
 
 This file intentionally contains no project-specific adaptation roadmap.
-

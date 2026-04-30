@@ -11,11 +11,13 @@
 ## Structural Changes
 
 1. Removed `#[cfg(test)]` gates across `xiuxian-daochang/src` and replaced test access with:
+
 - direct module-path imports from package-top harnesses,
 - harness-side wrappers where needed,
 - production visibility that matches real call boundaries (without global lint suppression).
 
 2. Migrated config test module from source tree:
+
 - moved `packages/rust/crates/xiuxian-daochang/src/config/tests_xiuxian.rs`
   to `packages/rust/crates/xiuxian-daochang/tests/unit/config/xiuxian_overlay_tests.rs`,
 - removed `mod tests_xiuxian;` from `packages/rust/crates/xiuxian-daochang/src/config/mod.rs`,
@@ -32,6 +34,7 @@ rg --line-number --glob 'packages/rust/crates/*/src/**/*.rs' '#\[cfg\(test\)\]' 
 ```
 
 Result:
+
 - no matches
 
 ### 2) Targeted nextest validation
@@ -45,6 +48,7 @@ RUSTC_WRAPPER= cargo nextest run -p xiuxian-daochang \
 ```
 
 Result:
+
 - `108 passed`, `0 failed`, `4 skipped`
 
 Additional touched-lane validation:
@@ -60,6 +64,7 @@ RUSTC_WRAPPER= cargo nextest run -p xiuxian-daochang \
 ```
 
 Result:
+
 - `65 passed`, `0 failed`, `2 skipped`
 
 ### 3) Mandatory clippy gate for touched Rust crate
@@ -69,6 +74,7 @@ RUSTC_WRAPPER= cargo clippy -p xiuxian-daochang -- -W clippy::too_many_lines
 ```
 
 Result:
+
 - success (exit 0)
 
 ## Notes

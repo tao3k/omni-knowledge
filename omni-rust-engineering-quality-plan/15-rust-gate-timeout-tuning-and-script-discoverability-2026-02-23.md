@@ -43,4 +43,3 @@ before full gate execution:
 ```bash
 just rust-quality-gate
 ```
-

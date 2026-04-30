@@ -173,4 +173,3 @@ This adoption slice is considered effective when:
    flow.
 3. Hotspot decomposition and bridge contract checks produce measurable scorecard
    improvements in `06-high-quality-rust-engineering-scorecard.md`.
-

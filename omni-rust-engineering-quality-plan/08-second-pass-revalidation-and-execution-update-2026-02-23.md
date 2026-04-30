@@ -64,6 +64,7 @@ earlier workspace-wide runs. This is an environment/runtime blocker, not a
 design blocker, and can produce ambiguous workspace validation signals.
 
 Action:
+
 - Use isolated `CARGO_TARGET_DIR` and sequential crate checks until the host
   state is clean.
 
@@ -72,53 +73,65 @@ Action:
 ## Feature A: Full Workspace Strict Clippy (Completion)
 
 Goal:
+
 - Reach reliable `cargo clippy --workspace -- -D warnings` evidence.
 
 Execution:
+
 1. Run isolated-target strict checks sequentially by crate group.
 2. Track first failing crate and fix before moving to next group.
 3. Re-run full workspace strict command once host/process state is clean.
 
 Exit:
+
 - Full workspace strict command passes with reproducible logs.
 
 ## Feature C: Boundary Output Safety Rollout
 
 Goal:
+
 - Prevent accidental protocol/log contamination from library code paths.
 
 Execution:
+
 1. Pilot root-level print deny in transport/core libraries first.
 2. Add explicit exceptions only at binary entrypoints.
 3. Fix violations as code changes, not broad lint allows.
 
 Exit:
+
 - Boundary policy enabled in selected core libraries and enforced in CI.
 
 ## Feature D: Hotspot Modularization Wave 1
 
 Goal:
+
 - Reduce risk from multi-concern files in critical runtime paths.
 
 Wave-1 targets:
+
 1. `packages/rust/crates/xiuxian-daochang/src/mcp_pool.rs`
 2. `packages/rust/crates/xiuxian-vector/src/search/search_impl.rs`
 3. `packages/rust/crates/xiuxian-vector/src/skill/ops_impl.rs`
 
 Exit:
+
 - Each target has concern-based submodules with behavior-preserving tests.
 
 ## Feature E/F: CI, Release, Security Hardening
 
 Goal:
+
 - Raise reliability and supply-chain confidence to modern baseline.
 
 Execution:
+
 1. Path-aware gating + required gatherer CI job.
 2. Cargo timing and cache summary in CI outputs.
 3. Mandatory `cargo-deny` and `cargo-audit` lanes with exception policy.
 
 Exit:
+
 - CI fails deterministically on lint/security regressions and provides
   actionable telemetry.
 
